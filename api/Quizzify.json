@@ -1,0 +1,28 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "quizId": 1,
+            "questionText": "How many US presidents have been assassinated?"
+        }
+    ],
+    "quizzes": [
+        {
+            "id": 1,
+            "name": "US Presidents",
+            "userId": "1",
+            "img": "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjaz9rSrf3gAhUiw4MKHSKWD84QjRx6BAgBEAU&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AAbraham_Lincoln_November_1863.jpg&psig=AOvVaw3VmPwlMy0y256KX5jL9HFm&ust=1552505991572587"
+        },
+        {
+            "id": 2,
+            "name": "US States",
+            "userId": "1"
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "username": "Stephen"
+        }
+    ]
+}
