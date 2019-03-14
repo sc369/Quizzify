@@ -1,28 +1,50 @@
 {
-    "questions": [
-        {
-            "id": 1,
-            "quizId": 1,
-            "questionText": "How many US presidents have been assassinated?"
-        }
-    ],
-    "quizzes": [
-        {
-            "id": 1,
-            "name": "US Presidents",
-            "userId": "1",
-            "img": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Abraham_Lincoln_November_1863.jpg"
-        },
-        {
-            "id": 2,
-            "name": "US States",
-            "userId": "1"
-        }
-    ],
-    "users": [
-        {
-            "id": 1,
-            "username": "Stephen"
-        }
-    ]
+  "questions": [
+    {
+      "id": 1,
+      "quizId": 1,
+      "questionText": "How many US presidents have been assassinated?"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": 1,
+      "name": "US Presidents are cool",
+      "userId": "1",
+      "public": true,
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Stephen"
+    }
+  ],
+  "answers": [
+    {
+      "id": 1,
+      "questionId": "1",
+      "text": "Four",
+      "correct": "true"
+    },
+    {
+      "id": 2,
+      "questionId": "1",
+      "text": "Two",
+      "correct": "false"
+    },
+    {
+      "id": 3,
+      "questionId": "1",
+      "text": "Three",
+      "correct": "false"
+    },
+    {
+      "id": 4,
+      "questionId": "1",
+      "text": "Five",
+      "correct": "false"
+    }
+  ]
 }

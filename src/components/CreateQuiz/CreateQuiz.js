@@ -6,18 +6,43 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 
 export default class CreateQuiz extends React.Component {
     constructor(props) {
-        super(props);
-
-        this.toggle = this.toggle.bind(this);
+        super(props)
+        this.toggle = this.toggle.bind(this)
         this.state = {
             dropdownOpen: false
-        };
+        }
     }
 
     toggle() {
         this.setState(prevState => ({
             dropdownOpen: !prevState.dropdownOpen
-        }));
+        }))
+    }
+
+    state = {
+        name: "",
+        userId: "",
+        public: true
+    }
+
+    handleFieldChange = evt => {
+        const stateToChange = {}
+        stateToChange[evt.target.id] = evt.target.value
+        this.setState(stateToChange)
+    }
+
+    createQuiz = evt => {
+        evt.preventDefault();
+        {
+            const quiz = {
+                name: this.state.name,
+                userId: "1",
+                public: true
+            }
+            this.props
+                .addQuiz(quiz)
+                .then((newQuizId) => this.props.history.push(`/addQ/${newQuizId}`))
+        }
     }
 
     render() {
@@ -26,7 +51,7 @@ export default class CreateQuiz extends React.Component {
                 <Form>
                     <FormGroup>
                         <Label for="exampleEmail">Quiz Name</Label>
-                        <Input type="question" name="question" id="question" placeholder="Name of quiz" />
+                        <Input type="text" name="name" id="name" placeholder="Name of quiz" onChange={this.handleFieldChange} />
                     </FormGroup>
                 </Form>
                 <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -43,7 +68,9 @@ export default class CreateQuiz extends React.Component {
                         <DropdownItem>Quo Action</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
-                <Button tag={Link} to="/AddQ">Submit and Add Questions</Button>
+
+
+                <Button type="submit" onClick={this.createQuiz} >Submit and Add Questions</Button>
             </React.Fragment>
         )
     }

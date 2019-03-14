@@ -8,9 +8,9 @@ export default class NavBar extends Component {
         return (
             <Navbar color="" light expand="md">
                 <NavLink>
-                    <Button tag={Link} to="/TakeQuiz">Take A Quiz</Button>
+                    <Button tag={Link} to="/SelectTakeQuiz">Take A Quiz</Button>
                     <Button tag={Link} to="/CreateQuiz">Create A Quiz</Button>
-                    <Button tag={Link} to="/EditQuiz">Edit A Quiz</Button>
+                    <Button tag={Link} to="/SelectEditQuiz">Edit A Quiz</Button>
                 </NavLink>
             </Navbar>
         )

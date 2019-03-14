@@ -3,7 +3,7 @@ import React, { Component } from "react"
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import { Link } from "react-router-dom"
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import DisplayQuizzes from "../DisplayQuizzes/DisplayQuizzes"
+import DisplayTakeQuizzes from "./DisplayTakeQuizzes"
 
 export default class EditQuiz extends React.Component {
     constructor(props) {
@@ -12,15 +12,14 @@ export default class EditQuiz extends React.Component {
         this.toggle = this.toggle.bind(this);
         this.state = {
             dropdownOpen: false
-        };
+        }
     }
 
     toggle() {
         this.setState(prevState => ({
             dropdownOpen: !prevState.dropdownOpen
-        }));
+        }))
     }
-
 
     render() {
         console.log(this.props.quizzes)
@@ -29,7 +28,7 @@ export default class EditQuiz extends React.Component {
                 <article className="quizzes">
                     {
                         this.props.quizzes.map(quiz =>
-                            <DisplayQuizzes key={`quiz-${quiz.id}`}
+                            <DisplayTakeQuizzes key={`quiz-${quiz.id}`}
                                 quiz={quiz}
                             />
                         )
