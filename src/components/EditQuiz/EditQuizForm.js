@@ -46,7 +46,6 @@ export default class EditQuizForm extends React.Component {
     }
 
     render() {
-
         const quiz = this.props.quizzes.find(quiz => quiz.id === parseInt(this.props.match.params.quizId)) || {}
         return (
             <section className="quiz">

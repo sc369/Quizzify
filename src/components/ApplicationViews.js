@@ -10,7 +10,9 @@ import UserManager from "../modules/DataManagers/UserManager"
 import DisplayOneQuiz from "../components/DisplayQuizzes/DisplayOneQuiz"
 import EditQuizForm from "../components/EditQuiz/EditQuizForm"
 import SelectTakeQuiz from "./DisplayQuizzes/SelectTakeQuiz"
-
+import AnswerManager from "../modules/DataManagers/AnswerManager"
+import QuestionManager from "../modules/DataManagers/QuestionManager"
+import UserAnswerManager from "../modules/DataManagers/UserAnswerManager"
 export default class ApplicationViews extends Component {
 
     state = {
@@ -32,6 +34,16 @@ export default class ApplicationViews extends Component {
                     quizzes: quizzes
                 })
                 return newQuizId
+            })
+    }
+
+    addUserAnswer = userAnswer => {
+        return UserAnswerManager.post(userAnswer)
+            .then(() => UserAnswerManager.getAll())
+            .then(userAnswers => {
+                this.setState({
+                    userAnswers: userAnswers
+                })
             })
     }
 
@@ -61,19 +73,14 @@ export default class ApplicationViews extends Component {
 
             .then(() => QuizManager.getAll())
             .then(quizzes => newState.quizzes = quizzes)
-
-            .then(() => this.setState(newState))
-    }
-
-    getAllQuizzes() {
-        const newState = {}
-        QuizManager.getAll()
-            .then(quizzes => newState.quizzes = quizzes)
+            .then(() => AnswerManager.getAll())
+            .then(answers => newState.answers = answers)
+            .then(() => QuestionManager.getAll())
+            .then(questions => newState.questions = questions)
             .then(() => this.setState(newState))
     }
 
     render() {
-        const takeOrEdit = "take"
         return (
             <React.Fragment >
                 <Route exact path="/AddQ" render={() => {
@@ -84,7 +91,9 @@ export default class ApplicationViews extends Component {
                 }} /> */}
                 < Route exact path="/DisplayQuestions" render={(props) => {
                     return <DisplayQuestions />
-                }} />
+                }
+                } />
+
                 < Route exact path="/quizzes/:quizId(\d+)" render={(props) => {
                     return <DisplayOneQuiz {...props}
                         quizzes={this.state.quizzes} />
@@ -96,7 +105,9 @@ export default class ApplicationViews extends Component {
                         updateQuiz={this.updateQuiz} />
                 }} />
                 < Route exact path="/TakeQuiz/:quizId(\d+)" render={(props) => {
-                    return <TakeQuiz quizzes={this.state.quizzes}
+                    return <TakeQuiz {...props}
+                        addUserAnswer={this.addUserAnswer}
+                        quizzes={this.state.quizzes}
                         answers={this.state.answers}
                         questions={this.state.questions}
                     />
@@ -105,7 +116,7 @@ export default class ApplicationViews extends Component {
                     return <CreateQuiz {...props}
                         addQuiz={this.addQuiz} />
                 }} />
-                < Route exact path="/SelectTakeQuiz" render={(props) => {
+                < Route path="/SelectTakeQuiz" render={(props) => {
                     return <SelectTakeQuiz quizzes={this.state.quizzes}
                     />
                 }} />

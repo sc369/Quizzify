@@ -36,9 +36,10 @@ export default class CreateQuiz extends React.Component {
         {
             const quiz = {
                 name: this.state.name,
-                userId: "1",
+                userId: sessionStorage.getItem("userInfo"),
                 public: true
             }
+            console.log(quiz)
             this.props
                 .addQuiz(quiz)
                 .then((newQuizId) => this.props.history.push(`/addQ/${newQuizId}`))

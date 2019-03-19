@@ -1,33 +1,25 @@
-import Settings from "./Settings";
+import Settings from "./Settings"
 
 export default {
     get(id) {
-        return fetch(`${Settings.remoteURL}/users/${id}`).then(e => e.json());
+        return fetch(`${Settings.remoteURL}/users/${id}`).then(r => r.json())
     },
     delete(id) {
         return fetch(`${Settings.remoteURL}/users/${id}`, {
             "method": "DELETE"
-        }).then(e => e.json());
+        }).then(r => r.json())
     },
     getAll() {
-        return fetch(`${Settings.remoteURL}/users`).then(e => e.json());
+        return fetch(`${Settings.remoteURL}/users`).then(e => e.json())
+    },
+    post(newUser) {
+        return fetch(`${Settings.remoteURL}/users`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newUser)
+        }).then(r => r.json())
     }
-    // put(editedQuiz) {
-    //     return fetch(`${Settings.remoteURL}/quizzes/${editedQuiz.id}`, {
-    //         method: "PUT",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(editedQuiz)
-    //     }).then(data => data.json());
-    // },
-    // post(newQuiz) {
-    //     return fetch(`${Settings.remoteURL}/quizzes`, {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(newQuiz)
-    //     }).then(data => data.json())
-    // }
+
 }

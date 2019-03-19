@@ -26,14 +26,15 @@ export default class EditQuiz extends React.Component {
         return (
             <React.Fragment>
                 <article className="quizzes">
-                    {
-                        this.props.quizzes.map(quiz =>
-                            <DisplayEditQuizzes key={`quiz-${quiz.id}`}
-                                history={this.props.history}
-                                quiz={quiz}
-                                deleteQuiz={this.props.deleteQuiz}
-                            />
-                        )
+                    { //user can only edit their own quizzes
+                        this.props.quizzes.filter(quiz => parseInt(quiz.userId) === parseInt(sessionStorage.userInfo))
+                            .map(quiz =>
+                                <DisplayEditQuizzes key={`quiz-${quiz.id}`}
+                                    history={this.props.history}
+                                    quiz={quiz}
+                                    deleteQuiz={this.props.deleteQuiz}
+                                />
+                            )
                     }
                 </article>
 

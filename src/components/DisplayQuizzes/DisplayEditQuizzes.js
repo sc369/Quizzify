@@ -19,7 +19,6 @@ export default class DisplayEditQuizzes extends Component {
                         <div className="creator"> {`Created by ${this.props.quiz.user.username}`}</div>
                         <img src={this.props.quiz.img}></img>
                         <Button
-                            // tag={Link} to={"/"}
                             onClick={() => this.props.deleteQuiz(this.props.quiz.id)
                                 .then(() => this.props.history.push("/SelectEditQuiz"))
                             } >Delete Quiz</Button>

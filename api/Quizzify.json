@@ -3,7 +3,85 @@
     {
       "id": 1,
       "quizId": 1,
-      "questionText": "How many US presidents have been assassinated?"
+      "text": "How many US presidents have been assassinated?"
+    },
+    {
+      "id": 2,
+      "quizId": 1,
+      "text": "Who was the second US President?"
+    }
+  ],
+  "userAnswers": [
+    {
+      "id": 1,
+      "userId": 1,
+      "questionId": 1
+    },
+    {
+      "answerId": 1,
+      "userId": 2,
+      "questionId": 1,
+      "id": 2
+    },
+    {
+      "answerId": 5,
+      "userId": 2,
+      "questionId": 2,
+      "id": 3
+    },
+    {
+      "answerId": 1,
+      "userId": 2,
+      "questionId": 1,
+      "id": 4
+    },
+    {
+      "answerId": 1,
+      "userId": 2,
+      "questionId": 1,
+      "id": 5
+    },
+    {
+      "answerId": 5,
+      "userId": 2,
+      "questionId": 2,
+      "id": 6
+    },
+    {
+      "answerId": 1,
+      "userId": 2,
+      "questionId": 1,
+      "id": 7
+    },
+    {
+      "answerId": 1,
+      "userId": 2,
+      "questionId": 1,
+      "id": 8
+    },
+    {
+      "answerId": 7,
+      "userId": 2,
+      "questionId": 2,
+      "id": 9
+    },
+    {
+      "answerId": 1,
+      "userId": 2,
+      "questionId": 1,
+      "id": 10
+    },
+    {
+      "answerId": 1,
+      "userId": 2,
+      "questionId": 1,
+      "id": 11
+    },
+    {
+      "answerId": 7,
+      "userId": 2,
+      "questionId": 2,
+      "id": 12
     }
   ],
   "quizzes": [
@@ -18,33 +96,81 @@
   "users": [
     {
       "id": 1,
-      "username": "Stephen"
+      "username": "Stephen",
+      "password": "123"
+    },
+    {
+      "username": "bubbabrine",
+      "password": "admin",
+      "id": 2
+    },
+    {
+      "username": "asd",
+      "password": "321",
+      "id": 3
+    },
+    {
+      "username": "bubbabrine",
+      "password": "admin",
+      "id": 6
     }
   ],
   "answers": [
     {
       "id": 1,
-      "questionId": "1",
+      "quizId": 1,
       "text": "Four",
-      "correct": "true"
+      "correct": true,
+      "questionId": 1
     },
     {
       "id": 2,
-      "questionId": "1",
+      "quizId": 1,
       "text": "Two",
-      "correct": "false"
+      "correct": false,
+      "questionId": 1
     },
     {
       "id": 3,
-      "questionId": "1",
+      "quizId": 1,
       "text": "Three",
-      "correct": "false"
+      "correct": false,
+      "questionId": 1
     },
     {
       "id": 4,
-      "questionId": "1",
+      "quizId": 1,
       "text": "Five",
-      "correct": "false"
+      "correct": false,
+      "questionId": 1
+    },
+    {
+      "id": 5,
+      "quizId": 1,
+      "text": "Thomas Jefferson",
+      "correct": false,
+      "questionId": 2
+    },
+    {
+      "id": 6,
+      "quizId": 1,
+      "text": "Alexander Hamilton",
+      "correct": false,
+      "questionId": 2
+    },
+    {
+      "id": 7,
+      "quizId": 1,
+      "text": "John Adams",
+      "correct": true,
+      "questionId": 2
+    },
+    {
+      "id": 8,
+      "quizId": 1,
+      "text": "James Madison",
+      "correct": false,
+      "questionId": 2
     }
   ]
 }

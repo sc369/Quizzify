@@ -22,7 +22,6 @@ export default class EditQuiz extends React.Component {
     }
 
     render() {
-        console.log(this.props.quizzes)
         return (
             <React.Fragment>
                 <article className="quizzes">
