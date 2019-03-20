@@ -3,7 +3,6 @@ import { Route } from "react-router-dom"
 import QuestionForm from "./QuestionForm/QuestionForm"
 import TakeQuiz from "./TakeQuiz/TakeQuiz"
 import CreateQuiz from "./CreateQuiz/CreateQuiz"
-import DisplayQuestions from "./DisplayQuestions/DisplayQuestions"
 import QuizManager from "../modules/DataManagers/QuizManager"
 import SelectEditQuiz from "./DisplayQuizzes/SelectEditQuiz"
 import UserManager from "../modules/DataManagers/UserManager"
@@ -13,6 +12,7 @@ import SelectTakeQuiz from "./DisplayQuizzes/SelectTakeQuiz"
 import AnswerManager from "../modules/DataManagers/AnswerManager"
 import QuestionManager from "../modules/DataManagers/QuestionManager"
 import UserAnswerManager from "../modules/DataManagers/UserAnswerManager"
+import EditQuestionForm from "../components/EditQuiz/EditQuestionForm"
 export default class ApplicationViews extends Component {
 
     state = {
@@ -37,6 +37,32 @@ export default class ApplicationViews extends Component {
             })
     }
 
+    addQuestion = (question) => {
+        let newQuestionId = null
+        return QuestionManager.post(question)
+            .then((newQuestion) => {
+                newQuestionId = newQuestion.id
+                return QuestionManager.getAll()
+            })
+            .then(questions => {
+                this.setState({
+                    questions: questions
+                })
+                return newQuestionId
+            })
+    }
+
+    addAnswer = (answer) => {
+        return AnswerManager.post(answer)
+            .then(() => AnswerManager.getAll)
+            .then((answers) => {
+                this.setState({
+                    answers: answers
+                })
+            })
+    }
+
+
     addUserAnswer = userAnswer => {
         return UserAnswerManager.post(userAnswer)
             .then(() => UserAnswerManager.getAll())
@@ -46,6 +72,7 @@ export default class ApplicationViews extends Component {
                 })
             })
     }
+
 
     updateQuiz = (editedQuiz) => {
         return QuizManager.put(editedQuiz)
@@ -83,22 +110,23 @@ export default class ApplicationViews extends Component {
     render() {
         return (
             <React.Fragment >
-                <Route exact path="/AddQ" render={() => {
-                    return <QuestionForm />
+                <Route path="/AddQ/:quizId(\d+)" render={(props) => {
+                    return <QuestionForm {...props}
+                        addQuestion={this.addQuestion}
+                        addAnswer={this.addAnswer}
+                    />
                 }} />
-                {/* <Route exact path="/DisplayQuizzes" render={(props) => {
-                    return <DisplayQuizzes quizzes={this.state.quizzes} />
-                }} /> */}
-                < Route exact path="/DisplayQuestions" render={(props) => {
-                    return <DisplayQuestions />
-                }
-                } />
 
                 < Route exact path="/quizzes/:quizId(\d+)" render={(props) => {
                     return <DisplayOneQuiz {...props}
                         quizzes={this.state.quizzes} />
                 }} />
 
+                < Route path="/EditQuestionForm/:quizId(\d+)/:questionIndex(\d+)" render={(props) => {
+                    return <EditQuestionForm {...props}
+                        quizzes={this.state.quizzes}
+                        updateQuiz={this.updateQuiz} />
+                }} />
                 < Route exact path="/EditQuiz/:quizId(\d+)" render={(props) => {
                     return <EditQuizForm {...props}
                         quizzes={this.state.quizzes}

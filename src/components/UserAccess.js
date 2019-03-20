@@ -31,5 +31,5 @@ class UserAccess extends React.Component {
   }
 }
 
-export default withRouter(UserAccess)
+export default UserAccess
 

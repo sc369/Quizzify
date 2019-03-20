@@ -38,30 +38,6 @@ export default class EditQuiz extends React.Component {
                     }
                 </article>
 
-                {/* {
-                    this.props.quizzes.map(quiz =>
-                        <article>
-                            <div key={quiz.id} className="card"></div>
-                            <div className="name"> {quiz.name} </div>
-                            <div className="creator">{quiz.user.username}</div>
-                        </article>
-                    )
-                } */}
-
-                {/* <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                    <DropdownToggle caret>
-                        Select a quiz
-        </DropdownToggle>
-                    <DropdownMenu>
-                        <DropdownItem header>Header</DropdownItem>
-                        <DropdownItem>Some Action</DropdownItem>
-                        <DropdownItem disabled>Action (disabled)</DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem>Foo Action</DropdownItem>
-                        <DropdownItem>Bar Action</DropdownItem>
-                        <DropdownItem>Quo Action</DropdownItem>
-                    </DropdownMenu>
-                </Dropdown> */}
             </React.Fragment>
         )
     }

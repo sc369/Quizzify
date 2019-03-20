@@ -32,13 +32,14 @@ export default class CreateQuiz extends React.Component {
     }
 
     createQuiz = evt => {
-        evt.preventDefault();
+        evt.preventDefault()
         {
             const quiz = {
                 name: this.state.name,
                 userId: sessionStorage.getItem("userInfo"),
                 public: true
             }
+
             console.log(quiz)
             this.props
                 .addQuiz(quiz)
@@ -55,21 +56,6 @@ export default class CreateQuiz extends React.Component {
                         <Input type="text" name="name" id="name" placeholder="Name of quiz" onChange={this.handleFieldChange} />
                     </FormGroup>
                 </Form>
-                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                    <DropdownToggle caret>
-                        Select a category
-        </DropdownToggle>
-                    <DropdownMenu>
-                        <DropdownItem header>Header</DropdownItem>
-                        <DropdownItem>Some Action</DropdownItem>
-                        <DropdownItem disabled>Action (disabled)</DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem>Foo Action</DropdownItem>
-                        <DropdownItem>Bar Action</DropdownItem>
-                        <DropdownItem>Quo Action</DropdownItem>
-                    </DropdownMenu>
-                </Dropdown>
-
 
                 <Button type="submit" onClick={this.createQuiz} >Submit and Add Questions</Button>
             </React.Fragment>

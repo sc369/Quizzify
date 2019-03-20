@@ -54,8 +54,6 @@ export default class TakeQuiz extends Component {
     }
 
     createUserAnswer = (questionId, answerId) => {
-
-
         {
             const userAnswerObj = {
                 answerId: parseInt(answerId),

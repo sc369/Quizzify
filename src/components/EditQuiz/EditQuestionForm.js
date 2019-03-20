@@ -2,9 +2,10 @@
 import React, { Component } from "react"
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import { Link } from "react-router-dom"
-import "./QuestionForm.css"
+import QuestionManager from "../../modules/DataManagers/QuestionManager"
+import AnswerManager from "../../modules/DataManagers/AnswerManager";
 
-export default class QuestionForm extends Component {
+export default class EditQuestionForm extends Component {
 
     state = {
         questionText: "",
@@ -30,6 +31,26 @@ export default class QuestionForm extends Component {
         stateToChange[evt.target.id] = !this.state[evt.target.id]
         this.setState(stateToChange);
     }
+
+    componentDidMount() {
+        QuestionManager.getAll()
+            .then((questions) => {
+                const filtered = questions.filter(question => parseInt(question.quizId) === parseInt(this.props.match.params.quizId))
+                const firstQuestion = (filtered[this.props.match.params.questionIndex])
+                AnswerManager.getAll()
+                    .then((answers) => {
+                        const theseAnswers = answers.filter(answer => answer.questionId === firstQuestion.id)
+                        console.log(theseAnswers)
+
+                    })
+
+                this.setState({
+                    questionText: firstQuestion.text
+                })
+            })
+
+    }
+
 
     createQandAs = evt => {
         evt.preventDefault();
@@ -83,11 +104,11 @@ export default class QuestionForm extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <React.Fragment >
                 <Form>
                     <FormGroup>
                         <Label for="questionText">Question</Label>
-                        <Input type="question" name="question" id="questionText" placeholder="Enter question text here" onChange={this.handleFieldChange} />
+                        <Input type="question" name="question" id="questionText" value={this.state.questionText} onChange={this.handleFieldChange} />
                     </FormGroup>
                     <FormGroup check>
                         <Label for="answerOneText">Answer 1 </Label>

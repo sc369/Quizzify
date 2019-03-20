@@ -19,18 +19,19 @@ export default class EditQuizForm extends React.Component {
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
+
     editQuiz = evt => {
         evt.preventDefault()
         {
             const quiz = {
                 id: this.props.match.params.quizId,
-                img: this.props.match.params.img,
+                img: this.state.img,
                 name: this.state.name,
                 userId: "1",
                 public: true
             }
             this.props.updateQuiz(quiz)
-                .then(() => this.props.history.push(`/EditQuiz/${this.props.match.params.quizId}`))
+                .then(() => this.props.history.push(`/EditQuestionForm/${this.props.match.params.quizId}/0`))
         }
     }
     componentDidMount() {
