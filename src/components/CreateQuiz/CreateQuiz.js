@@ -1,10 +1,9 @@
 
 import React, { Component } from "react"
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
-import { Link } from "react-router-dom"
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
-export default class CreateQuiz extends React.Component {
+
+export default class CreateQuiz extends Component {
     constructor(props) {
         super(props)
         this.toggle = this.toggle.bind(this)

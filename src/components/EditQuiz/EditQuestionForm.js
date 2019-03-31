@@ -124,19 +124,36 @@ export default class EditQuestionForm extends Component {
                 quizId: this.state.quizId
             }
             this.props.updateAnswer(answerFour).then(() => {
-                console.log("hi")
                 console.log(this.state.currentQuestionIndex)
                 this.setState({
                     currentQuestionIndex: parseInt(this.state.currentQuestionIndex) + 1
                 })
-                this.componentDidMount()
-                this.props.history.push(`/EditQuestionForm/${this.props.match.params.quizId}/${parseInt(this.state.currentQuestionIndex)}`)
+                console.log(this.state.currentQuestionIndex)
+                console.log(this.state.thisQuizQuestions.length)
+                // if the last question is reached, return to the dashboard
+                if (this.state.currentQuestionIndex === this.state.thisQuizQuestions.length) {
+                    console.log("last question")
+                    this.props.history.push('/SelectTakeQuiz')
+                } else {
+                    this.componentDidMount()
+                    this.props.history.push(`/EditQuestionForm/${this.props.match.params.quizId}/${parseInt(this.state.currentQuestionIndex)}`)
+                }
             })
         }
     }
 
+    //     {(quiz.hasOwnProperty('user')) ?
+    //     <div>
+    //         <img src={quiz.img}></img>
+    //         Created by {quiz.user.username}
+    //     </div> :
+    //     ""
+    // }
+
+
+
+
     render() {
-        console.log(this.props)
         return (
             <React.Fragment >
                 <Form autocomplete="off">
@@ -174,7 +191,10 @@ export default class EditQuestionForm extends Component {
                 </FormGroup>
                     <FormGroup check>
                         <Button tag={Link} to="/SelectTakeQuiz">Return to Dashboard</Button>
-                        <Button onClick={this.editQandAs}>Submit and Next Question</Button>
+                        {this.state.currentQuestionIndex + 1 !== (this.state.thisQuizQuestions.length) ?
+                            < Button onClick={this.editQandAs}>Submit and Next Question</Button>
+                            : <Button onClick={this.editQandAs}>Submit and Return to Dashboard</Button>
+                        }
                         <Button
                             onClick={() => this.props.deleteQuestionAndAnswers(this.state.questionId)
                                 .then(() => this.incrementQuestionIndex())
