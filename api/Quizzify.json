@@ -1,29 +1,19 @@
 {
   "questions": [
     {
-      "id": 1,
-      "quizId": 1,
-      "text": "How many US presidents have been assassinated?"
+      "text": "How many US presidents have been assassinated?",
+      "quizId": "1",
+      "id": 1
     },
     {
-      "id": 2,
-      "quizId": 1,
-      "text": "Who was the second US President?"
+      "text": "Who was the second US President?",
+      "quizId": "1",
+      "id": 2
     },
     {
-      "text": "What is the capital of France?",
-      "quizId": "5",
-      "id": 3
-    },
-    {
-      "text": "When did Scotland unite with England and Wales to form Great Britain?",
-      "quizId": "6",
-      "id": 4
-    },
-    {
-      "text": "Who killed Darth Vader?",
-      "quizId": "7",
-      "id": 5
+      "text": "1",
+      "quizId": "9",
+      "id": 7
     }
   ],
   "userAnswers": [
@@ -57,54 +47,73 @@
       "id": 5
     },
     {
-      "answerId": 15,
+      "answerId": 22,
       "userId": 1,
-      "questionId": 4,
-      "id": 6
+      "questionId": 6,
+      "id": 10
     },
     {
-      "answerId": 15,
+      "answerId": 23,
       "userId": 1,
-      "questionId": 4,
-      "id": 7
+      "questionId": 6,
+      "id": 11
     },
     {
-      "answerId": 10,
+      "answerId": 23,
       "userId": 1,
-      "questionId": 3,
-      "id": 8
+      "questionId": 6,
+      "id": 12
     },
     {
-      "answerId": 15,
+      "answerId": 3,
       "userId": 1,
-      "questionId": 4,
-      "id": 9
+      "questionId": 1,
+      "id": 13
+    },
+    {
+      "answerId": 6,
+      "userId": 1,
+      "questionId": 2,
+      "id": 14
+    },
+    {
+      "answerId": 23,
+      "userId": 1,
+      "questionId": 6,
+      "id": 15
+    },
+    {
+      "answerId": 3,
+      "userId": 1,
+      "questionId": 1,
+      "id": 16
+    },
+    {
+      "answerId": 7,
+      "userId": 1,
+      "questionId": 2,
+      "id": 17
+    },
+    {
+      "answerId": 26,
+      "userId": 1,
+      "questionId": 7,
+      "id": 18
     }
   ],
   "quizzes": [
     {
       "id": 1,
-      "name": "US Presidents",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/220px-Abraham_Lincoln_O-77_matte_collodion_print.jpg",
+      "name": "US Presidents!",
       "userId": "1",
       "public": true
     },
     {
-      "name": "Capitals",
+      "name": "Movie",
       "userId": "1",
       "public": true,
-      "id": 5
-    },
-    {
-      "name": "Countries",
-      "userId": "1",
-      "public": true,
-      "id": 6
-    },
-    {
-      "id": 7,
-      "name": "Star Wars",
-      "userId": "1",
-      "public": true
+      "id": 9
     }
   ],
   "users": [
@@ -117,153 +126,92 @@
       "username": "bubbabrine",
       "password": "admin",
       "id": 2
-    },
-    {
-      "username": "asd",
-      "password": "321",
-      "id": 3
     }
   ],
   "answers": [
     {
-      "id": 1,
-      "quizId": 1,
       "text": "Four",
+      "questionId": 1,
+      "id": 1,
       "correct": true,
-      "questionId": 1
+      "quizId": "1"
     },
     {
+      "text": "Six",
       "id": 2,
-      "quizId": 1,
-      "text": "Two",
+      "questionId": 1,
       "correct": false,
-      "questionId": 1
+      "quizId": "1"
     },
     {
-      "id": 3,
-      "quizId": 1,
       "text": "Three",
+      "id": 3,
+      "questionId": 1,
       "correct": false,
-      "questionId": 1
+      "quizId": "1"
     },
     {
-      "id": 4,
-      "quizId": 1,
       "text": "Five",
+      "id": 4,
+      "questionId": 1,
       "correct": false,
-      "questionId": 1
+      "quizId": "1"
     },
     {
-      "id": 5,
-      "quizId": 1,
       "text": "Thomas Jefferson",
+      "questionId": 2,
+      "id": 5,
       "correct": false,
-      "questionId": 2
+      "quizId": "1"
     },
     {
-      "id": 6,
-      "quizId": 1,
       "text": "Alexander Hamilton",
+      "id": 6,
+      "questionId": 2,
       "correct": false,
-      "questionId": 2
+      "quizId": "1"
     },
     {
-      "id": 7,
-      "quizId": 1,
       "text": "John Adams",
+      "id": 7,
+      "questionId": 2,
       "correct": true,
-      "questionId": 2
+      "quizId": "1"
     },
     {
-      "id": 8,
-      "quizId": 1,
       "text": "James Madison",
+      "id": 8,
+      "questionId": 2,
       "correct": false,
-      "questionId": 2
+      "quizId": "1"
     },
     {
-      "text": "Berlin",
-      "questionId": 3,
+      "text": "2",
+      "questionId": 7,
       "correct": false,
-      "quizId": "5",
-      "id": 9
+      "quizId": "9",
+      "id": 25
     },
     {
-      "text": "Paris",
-      "questionId": 3,
+      "text": "3",
+      "questionId": 7,
       "correct": true,
-      "quizId": "5",
-      "id": 10
+      "quizId": "9",
+      "id": 26
     },
     {
-      "text": "Moscow",
-      "questionId": 3,
+      "text": "4",
+      "questionId": 7,
       "correct": false,
-      "quizId": "5",
-      "id": 11
+      "quizId": "9",
+      "id": 27
     },
     {
-      "text": "Beirut",
-      "questionId": 3,
+      "text": "5",
+      "questionId": 7,
       "correct": false,
-      "quizId": "5",
-      "id": 12
-    },
-    {
-      "text": "1507",
-      "questionId": 4,
-      "correct": false,
-      "quizId": "6",
-      "id": 13
-    },
-    {
-      "text": "1607",
-      "questionId": 4,
-      "correct": false,
-      "quizId": "6",
-      "id": 14
-    },
-    {
-      "text": "1707",
-      "questionId": 4,
-      "correct": true,
-      "quizId": "6",
-      "id": 15
-    },
-    {
-      "text": "1807",
-      "questionId": 4,
-      "correct": false,
-      "quizId": "6",
-      "id": 16
-    },
-    {
-      "text": "Emperor Palpatine",
-      "questionId": 5,
-      "correct": true,
-      "quizId": "7",
-      "id": 17
-    },
-    {
-      "text": "Luke Skywalker",
-      "questionId": 5,
-      "correct": false,
-      "quizId": "7",
-      "id": 18
-    },
-    {
-      "text": "Obi-Wan Kenobi",
-      "questionId": 5,
-      "correct": false,
-      "quizId": "7",
-      "id": 19
-    },
-    {
-      "text": "Mace Windu",
-      "questionId": 5,
-      "correct": false,
-      "quizId": "7",
-      "id": 20
+      "quizId": "9",
+      "id": 28
     }
   ]
 }

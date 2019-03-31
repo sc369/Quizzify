@@ -39,11 +39,12 @@ export default class CreateQuiz extends React.Component {
                 userId: sessionStorage.getItem("userInfo"),
                 public: true
             }
-
-            console.log(quiz)
             this.props
                 .addQuiz(quiz)
                 .then((newQuizId) => this.props.history.push(`/addQ/${newQuizId}`))
+                .then(() => {
+                    this.props.refreshQandA()
+                })
         }
     }
 

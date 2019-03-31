@@ -52,31 +52,38 @@ export default class QuestionForm extends Component {
                         correct: this.state.answerOneCheck,
                         quizId: this.state.quizId
                     }
-                    this.props.addAnswer(answerOne)
+                    this.props.addAnswer(answerOne).then(() => {
 
-                    const answerTwo = {
-                        text: this.state.answerTwoText,
-                        questionId: newQuestionId,
-                        correct: this.state.answerTwoCheck,
-                        quizId: this.state.quizId
-                    }
-                    this.props.addAnswer(answerTwo)
+                        const answerTwo = {
+                            text: this.state.answerTwoText,
+                            questionId: newQuestionId,
+                            correct: this.state.answerTwoCheck,
+                            quizId: this.state.quizId
+                        }
+                        this.props.addAnswer(answerTwo)
+                    }).then(() => {
+                        const answerThree = {
+                            text: this.state.answerThreeText,
+                            questionId: newQuestionId,
+                            correct: this.state.answerThreeCheck,
+                            quizId: this.state.quizId
+                        }
+                        this.props.addAnswer(answerThree)
+                    }).then(() => {
 
-                    const answerThree = {
-                        text: this.state.answerThreeText,
-                        questionId: newQuestionId,
-                        correct: this.state.answerThreeCheck,
-                        quizId: this.state.quizId
-                    }
-                    this.props.addAnswer(answerThree)
+                        const answerFour = {
+                            text: this.state.answerFourText,
+                            questionId: newQuestionId,
+                            correct: this.state.answerFourCheck,
+                            quizId: this.state.quizId
+                        }
+                        this.props.addAnswer(answerFour)
+                    }).then(() => {
+                        this.props.refreshQandA()
 
-                    const answerFour = {
-                        text: this.state.answerFourText,
-                        questionId: newQuestionId,
-                        correct: this.state.answerFourCheck,
-                        quizId: this.state.quizId
-                    }
-                    this.props.addAnswer(answerFour)
+                    })
+
+
                 })
         }
     }

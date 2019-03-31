@@ -2,9 +2,7 @@ import React, { Component } from "react"
 // import "./login.css"
 import UserManager from "../../modules/DataManagers/UserManager"
 import { Button } from 'reactstrap'
-import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
-// import ApplicationViews from '../../components/ApplicationViews'
 class Register extends Component {
 
     state = {
@@ -17,6 +15,11 @@ class Register extends Component {
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
+    returnToSignIn = evt => {
+        evt.preventDefault()
+        sessionStorage.removeItem("userInfo")
+        this.props.history.push('/')
+    }
 
     registerNewUser = evt => {
         evt.preventDefault()
@@ -26,11 +29,19 @@ class Register extends Component {
                 password: this.state.password
             }
 
-            UserManager.post(newUser)
-                .then((user) => {
-                    sessionStorage.setItem("userInfo", parseInt(user.id))
-                    this.props.history.push('/SelectTakeQuiz')
-                })
+            UserManager.getAll().then(users => {
+                const userToCheck = users.find(user => user.username === this.state.username)
+                if (userToCheck === undefined) {
+                    UserManager.post(newUser)
+                        .then((user) => {
+                            sessionStorage.setItem("userInfo", parseInt(user.id))
+                            this.props.history.push('/SelectTakeQuiz')
+                        })
+                } else {
+                    window.alert("Sorry, this username already exists")
+                }
+            })
+
         }
     }
 
@@ -54,14 +65,8 @@ class Register extends Component {
                     placeholder={``}
                     required=""
                 />
-                {/* <button type="submit" onClick={this.handleLogin}>
-                    Sign in
-            </button> */}
-                <Button onClick={this.registerNewUser} > Register
-                </Button>
-
-
-
+                <Button onClick={this.registerNewUser} > Register</Button>
+                <Button onClick={this.returnToSignIn} >Back to Sign In</Button>
             </form>
         )
     }

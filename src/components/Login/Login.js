@@ -4,7 +4,6 @@ import UserManager from "../../modules/DataManagers/UserManager"
 import { Button } from 'reactstrap'
 import { Link } from 'react'
 import Register from './Register'
-import { Route } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 
 class Login extends Component {
@@ -33,7 +32,7 @@ class Login extends Component {
                     sessionStorage.setItem("userInfo", parseInt(foundUser.id))
                     this.props.history.push('/SelectTakeQuiz')
                 } else {
-                    window.alert("username or password not found")
+                    window.alert("Username or password incorrect")
                 }
             })
         }
@@ -60,12 +59,12 @@ class Login extends Component {
                         placeholder={``}
                         required=""
                     />
-                    <button type="submit" onClick={this.checkLogin}>
+                    <Button type="submit" onClick={this.checkLogin}>
                         Login
-        </button>
-                    <button type="submit" onClick={this.setRegistrationStatus}>
+        </Button>
+                    <Button type="submit" onClick={this.setRegistrationStatus}>
                         Go to Registration
-        </button>
+        </Button>
 
                 </form>
             </React.Fragment >

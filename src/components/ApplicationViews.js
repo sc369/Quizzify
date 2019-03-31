@@ -62,6 +62,34 @@ export default class ApplicationViews extends Component {
             })
     }
 
+    refreshQandA = () => {
+        const newState = {}
+        return QuestionManager.getAll()
+            .then(questions => newState.questions = questions)
+            .then(() => AnswerManager.getAll())
+            .then(answers => newState.answers = answers)
+            .then(() => this.setState(newState))
+
+    }
+
+    deleteQuestionAndAnswers = (questionId) => {
+        // AnswerManager.getAll().then((answers) => {
+        //     const answersToDelete = answers.filter(answer => answer.questionId === questionId)
+        //     answersToDelete.forEach(answer => {
+        //         AnswerManager.delete(answer.id)
+        //     })
+        //     QuestionManager.delete(questionId)
+        // })
+
+        return QuestionManager.delete(questionId).then(() => {
+            const newState = {}
+            QuestionManager.getAll()
+                .then(questions => newState.questions = questions)
+                .then(() => AnswerManager.getAll())
+                .then(answers => newState.answers = answers)
+                .then(() => this.setState(newState))
+        })
+    }
 
     addUserAnswer = userAnswer => {
         return UserAnswerManager.post(userAnswer)
@@ -84,6 +112,25 @@ export default class ApplicationViews extends Component {
             })
     }
 
+    updateAnswer = (editedAnswer) => {
+        return AnswerManager.put(editedAnswer)
+            .then(() => AnswerManager.getAll())
+            .then(answers => {
+                this.setState({
+                    answers: answers
+                })
+            })
+    }
+    updateQuestion = (editedQuestion) => {
+        return QuestionManager.put(editedQuestion)
+            .then(() => QuestionManager.getAll())
+            .then(questions => {
+                this.setState({
+                    questions: questions
+                })
+            })
+    }
+
     deleteQuiz = quizId => {
         return QuizManager.delete(quizId)
             .then(QuizManager.getAll)
@@ -91,6 +138,25 @@ export default class ApplicationViews extends Component {
                 quizzes: quizzes
             })
             )
+    }
+
+    deleteQuestionAndAnswers = (questionId) => {
+        // AnswerManager.getAll().then((answers) => {
+        //     const answersToDelete = answers.filter(answer => answer.questionId === questionId)
+        //     answersToDelete.forEach(answer => {
+        //         AnswerManager.delete(answer.id)
+        //     })
+        //     QuestionManager.delete(questionId)
+        // })
+
+        return QuestionManager.delete(questionId).then(() => {
+            const newState = {}
+            QuestionManager.getAll()
+                .then(questions => newState.questions = questions)
+                .then(() => AnswerManager.getAll())
+                .then(answers => newState.answers = answers)
+                .then(() => this.setState(newState))
+        })
     }
 
     componentDidMount() {
@@ -114,6 +180,7 @@ export default class ApplicationViews extends Component {
                     return <QuestionForm {...props}
                         addQuestion={this.addQuestion}
                         addAnswer={this.addAnswer}
+                        refreshQandA={this.refreshQandA}
                     />
                 }} />
 
@@ -124,8 +191,13 @@ export default class ApplicationViews extends Component {
 
                 < Route path="/EditQuestionForm/:quizId(\d+)/:questionIndex(\d+)" render={(props) => {
                     return <EditQuestionForm {...props}
+                        updateQuestion={this.updateQuestion}
+                        updateAnswer={this.updateAnswer}
+                        addAnswer={this.addAnswer}
+                        addQuestion={this.addQuestion}
                         quizzes={this.state.quizzes}
-                        updateQuiz={this.updateQuiz} />
+                        updateQuiz={this.updateQuiz}
+                        deleteQuestionAndAnswers={this.deleteQuestionAndAnswers} />
                 }} />
                 < Route exact path="/EditQuiz/:quizId(\d+)" render={(props) => {
                     return <EditQuizForm {...props}
@@ -142,10 +214,15 @@ export default class ApplicationViews extends Component {
                 }} />
                 < Route exact path="/CreateQuiz" render={(props) => {
                     return <CreateQuiz {...props}
-                        addQuiz={this.addQuiz} />
+                        addQuiz={this.addQuiz}
+                        refreshQandA={this.refreshQandA} />
                 }} />
                 < Route path="/SelectTakeQuiz" render={(props) => {
-                    return <SelectTakeQuiz quizzes={this.state.quizzes}
+                    return <SelectTakeQuiz
+                        questions={this.state.questions}
+                        answers={this.state.answers}
+                        quizzes={this.state.quizzes}
+                        refreshQandA={this.refreshQandA}
                     />
                 }} />
                 < Route exact path="/SelectEditQuiz" render={(props) => {

@@ -8,15 +8,21 @@ import AnswerManager from "../../modules/DataManagers/AnswerManager";
 export default class EditQuestionForm extends Component {
 
     state = {
+        thisQuizQuestions: [],
+        currentQuestionIndex: 0,
         questionText: "",
         answerOneText: "",
         answerOneCheck: false,
+        answerOneId: "",
         answerTwoText: "",
         answerTwoCheck: false,
+        answerTwoId: "",
         answerThreeText: "",
         answerThreeCheck: false,
+        answerThreeId: "",
         answerFourText: "",
         answerFourCheck: false,
+        answerFourId: "",
         quizId: this.props.match.params.quizId
     }
 
@@ -33,26 +39,43 @@ export default class EditQuestionForm extends Component {
     }
 
     componentDidMount() {
+        console.log("called")
         QuestionManager.getAll()
             .then((questions) => {
-                const filtered = questions.filter(question => parseInt(question.quizId) === parseInt(this.props.match.params.quizId))
-                const firstQuestion = (filtered[this.props.match.params.questionIndex])
+                const thisQuizQuestions = questions.filter(question => parseInt(question.quizId) === parseInt(this.props.match.params.quizId))
+                const selectedQuestion = (thisQuizQuestions[this.state.currentQuestionIndex])
                 AnswerManager.getAll()
                     .then((answers) => {
-                        const theseAnswers = answers.filter(answer => answer.questionId === firstQuestion.id)
-                        console.log(theseAnswers)
-
+                        const selectedQuestionAnswers = answers.filter(answer => answer.questionId === selectedQuestion.id)
+                        this.setState({
+                            thisQuizQuestions: thisQuizQuestions,
+                            questionText: selectedQuestion.text,
+                            questionId: selectedQuestion.id,
+                            answerOneText: selectedQuestionAnswers[0].text,
+                            answerOneCheck: selectedQuestionAnswers[0].correct,
+                            answerOneId: selectedQuestionAnswers[0].id,
+                            answerTwoText: selectedQuestionAnswers[1].text,
+                            answerTwoCheck: selectedQuestionAnswers[1].correct,
+                            answerTwoId: selectedQuestionAnswers[1].id,
+                            answerThreeText: selectedQuestionAnswers[2].text,
+                            answerThreeCheck: selectedQuestionAnswers[2].correct,
+                            answerThreeId: selectedQuestionAnswers[2].id,
+                            answerFourText: selectedQuestionAnswers[3].text,
+                            answerFourCheck: selectedQuestionAnswers[3].correct,
+                            answerFourId: selectedQuestionAnswers[3].id,
+                        })
                     })
-
-                this.setState({
-                    questionText: firstQuestion.text
-                })
             })
+    }
+    incrementQuestionIndex = () => {
+        this.setState({
+            currentQuestionIndex: parseInt(this.state.currentQuestionIndex) + 1
+        })
+        this.props.history.push(`/EditQuestionForm/${this.props.match.params.quizId}/${parseInt(this.state.currentQuestionIndex)}`)
 
     }
 
-
-    createQandAs = evt => {
+    editQandAs = evt => {
         evt.preventDefault();
         if (this.state.answerOneCheck === false && this.state.answerTwoCheck === false && this.state.answerThreeCheck === false && this.state.answerFourCheck === false) {
             window.alert("Please select at least one correct answer")
@@ -61,51 +84,62 @@ export default class EditQuestionForm extends Component {
         } else {
             const question = {
                 text: this.state.questionText,
+                quizId: this.state.quizId,
+                id: this.state.questionId
+            }
+            this.props.updateQuestion(question)
+
+            const answerOne = {
+                text: this.state.answerOneText,
+                questionId: this.state.questionId,
+                id: this.state.answerOneId,
+                correct: this.state.answerOneCheck,
                 quizId: this.state.quizId
             }
-            this.props
-                .addQuestion(question)
-                .then((newQuestionId) => {
+            this.props.updateAnswer(answerOne)
 
-                    const answerOne = {
-                        text: this.state.answerOneText,
-                        questionId: newQuestionId,
-                        correct: this.state.answerOneCheck,
-                        quizId: this.state.quizId
-                    }
-                    this.props.addAnswer(answerOne)
+            const answerTwo = {
+                text: this.state.answerTwoText,
+                id: this.state.answerTwoId,
+                questionId: this.state.questionId,
+                correct: this.state.answerTwoCheck,
+                quizId: this.state.quizId
+            }
+            this.props.updateAnswer(answerTwo)
 
-                    const answerTwo = {
-                        text: this.state.answerTwoText,
-                        questionId: newQuestionId,
-                        correct: this.state.answerTwoCheck,
-                        quizId: this.state.quizId
-                    }
-                    this.props.addAnswer(answerTwo)
+            const answerThree = {
+                text: this.state.answerThreeText,
+                id: this.state.answerThreeId,
+                questionId: this.state.questionId,
+                correct: this.state.answerThreeCheck,
+                quizId: this.state.quizId
+            }
+            this.props.updateAnswer(answerThree)
 
-                    const answerThree = {
-                        text: this.state.answerThreeText,
-                        questionId: newQuestionId,
-                        correct: this.state.answerThreeCheck,
-                        quizId: this.state.quizId
-                    }
-                    this.props.addAnswer(answerThree)
-
-                    const answerFour = {
-                        text: this.state.answerFourText,
-                        questionId: newQuestionId,
-                        correct: this.state.answerFourCheck,
-                        quizId: this.state.quizId
-                    }
-                    this.props.addAnswer(answerFour)
+            const answerFour = {
+                text: this.state.answerFourText,
+                id: this.state.answerFourId,
+                questionId: this.state.questionId,
+                correct: this.state.answerFourCheck,
+                quizId: this.state.quizId
+            }
+            this.props.updateAnswer(answerFour).then(() => {
+                console.log("hi")
+                console.log(this.state.currentQuestionIndex)
+                this.setState({
+                    currentQuestionIndex: parseInt(this.state.currentQuestionIndex) + 1
                 })
+                this.componentDidMount()
+                this.props.history.push(`/EditQuestionForm/${this.props.match.params.quizId}/${parseInt(this.state.currentQuestionIndex)}`)
+            })
         }
     }
 
     render() {
+        console.log(this.props)
         return (
             <React.Fragment >
-                <Form>
+                <Form autocomplete="off">
                     <FormGroup>
                         <Label for="questionText">Question</Label>
                         <Input type="question" name="question" id="questionText" value={this.state.questionText} onChange={this.handleFieldChange} />
@@ -114,33 +148,37 @@ export default class EditQuestionForm extends Component {
                         <Label for="answerOneText">Answer 1 </Label>
                     </FormGroup>
                     <FormGroup check inline>
-                        <Input className="question_input" type="text" name="answerOneText" id="answerOneText" placeholder="Enter answer text here" onChange={this.handleFieldChange} />
-                        <Input type="checkbox" name="answer" id="answerOneCheck" onChange={this.handleCheckboxChange} />{' '} Correct
+                        <Input className="question_input" type="text" name="answerOneText" id="answerOneText" value={this.state.answerOneText} onChange={this.handleFieldChange} />
+                        <Input type="checkbox" name="answer" id="answerOneCheck" checked={this.state.answerOneCheck} onChange={this.handleCheckboxChange} />{' '} Correct
                 </FormGroup>
                     <FormGroup check>
                         <Label for="answerTwoText">Answer 2</Label>
                     </FormGroup>
                     <FormGroup check inline>
-                        <Input className="question_input" type="text" name="answerTwoText" id="answerTwoText" placeholder="Enter answer text here" onChange={this.handleFieldChange} />
-                        <Input type="checkbox" name="answer" id="answerTwoCheck" onChange={this.handleCheckboxChange} />{' '} Correct
+                        <Input className="question_input" type="text" name="answerTwoText" id="answerTwoText" value={this.state.answerTwoText} onChange={this.handleFieldChange} />
+                        <Input type="checkbox" name="answer" id="answerTwoCheck" checked={this.state.answerTwoCheck} onChange={this.handleCheckboxChange} />{' '} Correct
                 </FormGroup>
                     <FormGroup check>
                         <Label for="answerThreeText">Answer 3</Label>
                     </FormGroup>
                     <FormGroup check inline>
-                        <Input className="question_input" type="text" name="answerThreeText" id="answerThreeText" placeholder="Enter answer text here" onChange={this.handleFieldChange} />
-                        <Input type="checkbox" name="answer" id="answerThreeCheck" onChange={this.handleCheckboxChange} />{' '} Correct
+                        <Input className="question_input" type="text" name="answerThreeText" id="answerThreeText" value={this.state.answerThreeText} onChange={this.handleFieldChange} />
+                        <Input type="checkbox" name="answer" id="answerThreeCheck" checked={this.state.answerThreeCheck} onChange={this.handleCheckboxChange} />{' '} Correct
                     </FormGroup>
                     <FormGroup check>
                         <Label for="answerFourText">Answer 4</Label>
                     </FormGroup>
                     <FormGroup check inline>
-                        <Input className="question_input" type="answer" name="answerFourText" id="answerFourText" placeholder="Enter answer text here" onChange={this.handleFieldChange} />
-                        <Input type="checkbox" name="answer" id="answerFourCheck" onChange={this.handleCheckboxChange} />{' '} Correct
+                        <Input className="question_input" type="answer" name="answerFourText" id="answerFourText" value={this.state.answerFourText} onChange={this.handleFieldChange} />
+                        <Input type="checkbox" name="answer" id="answerFourCheck" checked={this.state.answerFourCheck} onChange={this.handleCheckboxChange} />{' '} Correct
                 </FormGroup>
                     <FormGroup check>
-                        <Button tag={Link} to="/">Return to Dashboard</Button>
-                        <Button onClick={this.createQandAs}>Submit</Button>
+                        <Button tag={Link} to="/SelectTakeQuiz">Return to Dashboard</Button>
+                        <Button onClick={this.editQandAs}>Submit and Next Question</Button>
+                        <Button
+                            onClick={() => this.props.deleteQuestionAndAnswers(this.state.questionId)
+                                .then(() => this.incrementQuestionIndex())
+                            } >Delete Question</Button>
                     </FormGroup>
                 </Form>
             </React.Fragment >

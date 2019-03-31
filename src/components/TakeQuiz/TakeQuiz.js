@@ -44,6 +44,7 @@ export default class TakeQuiz extends Component {
                     theseAnswers: this.props.answers.filter(answer => answer.questionId === this.state.thisQuizQuestions[this.state.currentQuestionIndex + 1].id),
                     currentQuestionIndex: this.state.currentQuestionIndex + 1,
                 })
+
             } else if (this.state.correctAnswers === 1) {
                 window.alert(`You got 1 answer correct out of ${this.state.thisQuizQuestions.length}`)
             } else {

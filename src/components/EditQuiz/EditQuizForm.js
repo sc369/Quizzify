@@ -1,13 +1,10 @@
 import React, { Component } from "react"
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
-import { Link } from "react-router-dom"
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import QuizManager from "../../modules/DataManagers/QuizManager"
 
-export default class EditQuizForm extends React.Component {
+export default class EditQuizForm extends Component {
 
     state = {
-        // name: `${quiz.name}`
         name: "",
         userId: "",
         public: true,
@@ -62,9 +59,9 @@ export default class EditQuizForm extends React.Component {
                         <h4 className="card-title">
                             <Form>
                                 <FormGroup>
-                                    <Label for="exampleEmail">Edit Quiz Name</Label>
-                                    <Input type="text" name="name" id="name" value={`${quiz.name}`} onChange={this.handleFieldChange} />
-                                    <Label for="exampleEmail">Edit Image URL</Label>
+                                    <Label for="name">Edit Quiz Name</Label>
+                                    <Input type="text" name="name" id="name" defaultValue={`${quiz.name}`} onChange={this.handleFieldChange} />
+                                    <Label for="img">Edit Image URL</Label>
                                     <Input type="text" name="img" id="img" value={`${this.state.img}`} onChange={this.handleFieldChange} />
                                     <Button type="submit" onClick={this.editQuiz} >Submit and Edit Questions</Button>
                                 </FormGroup>

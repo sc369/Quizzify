@@ -9,7 +9,6 @@ import { Button } from 'reactstrap'
 export default class DisplayEditQuizzes extends Component {
 
     render() {
-        console.log(this.props)
         return (
             <React.Fragment>
                 {
