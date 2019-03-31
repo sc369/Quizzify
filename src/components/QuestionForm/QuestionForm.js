@@ -1,12 +1,13 @@
 
 import React, { Component } from "react"
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap'
 import { Link } from "react-router-dom"
 import "./QuestionForm.css"
 
 export default class QuestionForm extends Component {
 
     state = {
+        alertVisible: false,
         questionText: "",
         answerOneText: "",
         answerOneCheck: false,
@@ -31,17 +32,29 @@ export default class QuestionForm extends Component {
         this.setState(stateToChange);
     }
 
+    onShowAlert = () => {
+        this.setState({ alertVisible: true }, () => {
+            window.setTimeout(() => {
+                this.setState({ alertVisible: false })
+            }, 1500)
+        });
+    }
     createQandAs = evt => {
         evt.preventDefault();
         if (this.state.answerOneCheck === false && this.state.answerTwoCheck === false && this.state.answerThreeCheck === false && this.state.answerFourCheck === false) {
             window.alert("Please select at least one correct answer")
         } else if (this.state.answerOneCheck === true && this.state.answerTwoCheck === true && this.state.answerThreeCheck === true && this.state.answerFourCheck === true) {
             window.alert("Please select at least one incorrect answer")
+        } else if (this.state.questionText === "") {
+            window.alert("Please enter a question ")
+        } else if (this.state.answerOneText === "" || this.state.answerTwoText === "" || this.state.answerThreeText === "" || this.state.answerFourText === "") {
+            window.alert("Please add all four answers")
         } else {
             const question = {
                 text: this.state.questionText,
                 quizId: this.state.quizId
             }
+
             this.props
                 .addQuestion(question)
                 .then((newQuestionId) => {
@@ -80,6 +93,8 @@ export default class QuestionForm extends Component {
                         this.props.addAnswer(answerFour)
                     }).then(() => {
                         this.props.refreshQandA()
+                        this.onShowAlert()
+
 
                     })
 
@@ -123,10 +138,13 @@ export default class QuestionForm extends Component {
                     <FormGroup check inline>
                         <Input className="question_input" type="answer" name="answerFourText" id="answerFourText" placeholder="Enter answer text here" onChange={this.handleFieldChange} />
                         <Input type="checkbox" name="answer" id="answerFourCheck" onChange={this.handleCheckboxChange} />{' '} Correct
-                </FormGroup>
+                    </FormGroup>
+                    <Alert color="info" isOpen={this.state.alertVisible} >
+                        Question added
+                        </Alert>
                     <FormGroup check>
                         <Button tag={Link} to="/">Return to Dashboard</Button>
-                        <Button onClick={this.createQandAs}>Submit</Button>
+                        <Button onClick={this.createQandAs}>Submit Question</Button>
                     </FormGroup>
                 </Form>
             </React.Fragment >

@@ -1,6 +1,6 @@
 
 import React, { Component } from "react"
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { Button, FormGroup, Label, Input } from 'reactstrap'
 import AnswerManager from "../../modules/DataManagers/AnswerManager";
 
 export default class TakeQuiz extends Component {
@@ -43,7 +43,9 @@ export default class TakeQuiz extends Component {
                     chosen_answer: "none",
                     theseAnswers: this.props.answers.filter(answer => answer.questionId === this.state.thisQuizQuestions[this.state.currentQuestionIndex + 1].id),
                     currentQuestionIndex: this.state.currentQuestionIndex + 1,
+
                 })
+
 
             } else if (this.state.correctAnswers === 1) {
                 window.alert(`You got 1 answer correct out of ${this.state.thisQuizQuestions.length}`)

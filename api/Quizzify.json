@@ -9,11 +9,6 @@
       "text": "Who was the second US President?",
       "quizId": "1",
       "id": 2
-    },
-    {
-      "text": "1",
-      "quizId": "9",
-      "id": 7
     }
   ],
   "userAnswers": [
@@ -47,24 +42,6 @@
       "id": 5
     },
     {
-      "answerId": 22,
-      "userId": 1,
-      "questionId": 6,
-      "id": 10
-    },
-    {
-      "answerId": 23,
-      "userId": 1,
-      "questionId": 6,
-      "id": 11
-    },
-    {
-      "answerId": 23,
-      "userId": 1,
-      "questionId": 6,
-      "id": 12
-    },
-    {
       "answerId": 3,
       "userId": 1,
       "questionId": 1,
@@ -77,12 +54,6 @@
       "id": 14
     },
     {
-      "answerId": 23,
-      "userId": 1,
-      "questionId": 6,
-      "id": 15
-    },
-    {
       "answerId": 3,
       "userId": 1,
       "questionId": 1,
@@ -93,12 +64,6 @@
       "userId": 1,
       "questionId": 2,
       "id": 17
-    },
-    {
-      "answerId": 26,
-      "userId": 1,
-      "questionId": 7,
-      "id": 18
     }
   ],
   "quizzes": [
@@ -108,12 +73,6 @@
       "name": "US Presidents!",
       "userId": "1",
       "public": true
-    },
-    {
-      "name": "Movie",
-      "userId": "1",
-      "public": true,
-      "id": 9
     }
   ],
   "users": [
@@ -184,34 +143,6 @@
       "questionId": 2,
       "correct": false,
       "quizId": "1"
-    },
-    {
-      "text": "2",
-      "questionId": 7,
-      "correct": false,
-      "quizId": "9",
-      "id": 25
-    },
-    {
-      "text": "3",
-      "questionId": 7,
-      "correct": true,
-      "quizId": "9",
-      "id": 26
-    },
-    {
-      "text": "4",
-      "questionId": 7,
-      "correct": false,
-      "quizId": "9",
-      "id": 27
-    },
-    {
-      "text": "5",
-      "questionId": 7,
-      "correct": false,
-      "quizId": "9",
-      "id": 28
     }
   ]
 }

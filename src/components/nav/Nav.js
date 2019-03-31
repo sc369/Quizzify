@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { Navbar, NavLink, Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
 import UserManager from "../../modules/DataManagers/UserManager";
-import "./Nav.css"
 
 class NavBar extends Component {
 

@@ -3,9 +3,8 @@ import Nav from './nav/Nav'
 import ApplicationViews from "./ApplicationViews"
 import Login from "./Login/Login"
 import Register from "./Login/Register"
-import { withRouter } from 'react-router-dom'
 
-class UserAccess extends React.Component {
+class UserAccess extends Component {
   render() {
     // if user is logged in
     if (isNaN(parseInt((sessionStorage.getItem("userInfo")))) === false) {
@@ -20,7 +19,6 @@ class UserAccess extends React.Component {
       return (
         <Register>
         </Register>
-
       )
 
     } else return (

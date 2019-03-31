@@ -1,11 +1,8 @@
 
 import React, { Component } from "react"
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
-import { Link } from "react-router-dom"
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import DisplayTakeQuizzes from "./DisplayTakeQuizzes"
 
-export default class EditQuiz extends React.Component {
+export default class EditQuiz extends Component {
     constructor(props) {
         super(props);
 

@@ -1,9 +1,6 @@
 import React, { Component } from "react"
-// import "./login.css"
 import UserManager from "../../modules/DataManagers/UserManager"
 import { Button } from 'reactstrap'
-import { Link } from 'react'
-import Register from './Register'
 import { withRouter } from 'react-router-dom'
 
 class Login extends Component {
@@ -25,17 +22,16 @@ class Login extends Component {
 
     checkLogin = evt => {
         evt.preventDefault()
-        {
-            UserManager.getAll().then((users) => {
-                const foundUser = users.find(user => user.username === this.state.username && user.password === this.state.password)
-                if (foundUser) {
-                    sessionStorage.setItem("userInfo", parseInt(foundUser.id))
-                    this.props.history.push('/SelectTakeQuiz')
-                } else {
-                    window.alert("Username or password incorrect")
-                }
-            })
-        }
+        UserManager.getAll().then((users) => {
+            const foundUser = users.find(user => user.username === this.state.username && user.password === this.state.password)
+            if (foundUser) {
+                sessionStorage.setItem("userInfo", parseInt(foundUser.id))
+                this.props.history.push('/SelectTakeQuiz')
+            } else {
+                window.alert("Username or password incorrect")
+            }
+        })
+
     }
 
     render() {

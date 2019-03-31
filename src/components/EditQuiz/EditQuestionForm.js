@@ -1,6 +1,6 @@
 
 import React, { Component } from "react"
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import { Link } from "react-router-dom"
 import QuestionManager from "../../modules/DataManagers/QuestionManager"
 import AnswerManager from "../../modules/DataManagers/AnswerManager";
@@ -191,6 +191,7 @@ export default class EditQuestionForm extends Component {
                 </FormGroup>
                     <FormGroup check>
                         <Button tag={Link} to="/SelectTakeQuiz">Return to Dashboard</Button>
+                        {/* show different button if this is the last question */}
                         {this.state.currentQuestionIndex + 1 !== (this.state.thisQuizQuestions.length) ?
                             < Button onClick={this.editQandAs}>Submit and Next Question</Button>
                             : <Button onClick={this.editQandAs}>Submit and Return to Dashboard</Button>

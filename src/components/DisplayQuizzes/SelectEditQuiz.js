@@ -1,25 +1,8 @@
 
 import React, { Component } from "react"
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
-import { Link } from "react-router-dom"
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import DisplayEditQuizzes from "./DisplayEditQuizzes"
 
-export default class EditQuiz extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            dropdownOpen: false
-        }
-    }
-
-    toggle() {
-        this.setState(prevState => ({
-            dropdownOpen: !prevState.dropdownOpen
-        }))
-    }
+export default class EditQuiz extends Component {
 
     render() {
         return (

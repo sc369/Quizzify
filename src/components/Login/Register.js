@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import "./login.css"
 import UserManager from "../../modules/DataManagers/UserManager"
 import { Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
