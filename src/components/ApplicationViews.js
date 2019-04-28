@@ -140,24 +140,6 @@ export default class ApplicationViews extends Component {
             )
     }
 
-    deleteQuestionAndAnswers = (questionId) => {
-        // AnswerManager.getAll().then((answers) => {
-        //     const answersToDelete = answers.filter(answer => answer.questionId === questionId)
-        //     answersToDelete.forEach(answer => {
-        //         AnswerManager.delete(answer.id)
-        //     })
-        //     QuestionManager.delete(questionId)
-        // })
-
-        return QuestionManager.delete(questionId).then(() => {
-            const newState = {}
-            QuestionManager.getAll()
-                .then(questions => newState.questions = questions)
-                .then(() => AnswerManager.getAll())
-                .then(answers => newState.answers = answers)
-                .then(() => this.setState(newState))
-        })
-    }
 
     componentDidMount() {
         const newState = {}

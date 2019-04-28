@@ -1,0 +1,53 @@
+.QandA {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.question {
+text-align: center;
+margin-top: 20px;
+margin-bottom: 20px;
+font-weight: bold;
+font-size: 1.2em;
+}
+
+.answer_text {
+font-size: 1em;
+min-width: 300px;
+text-align: left;
+}
+
+.next_question {
+   text-align: center !important;
+   margin-top: 20px;
+   min-width: 120px;
+}
+
+.html {
+    background-color: aqua !important;
+}
+
+.container {
+display: flex;
+flex-direction: column;
+width: 20px !important;
+}
+
+.answer_container {
+display: flex
+}
+
+.answer {
+    text-align: center;
+}
+
+/* .form-check-input {
+text-align: center !important;
+
+} */
+
+/* .form-check {
+text-align: center;
+} */
+

@@ -1,6 +1,7 @@
 
 import React, { Component } from "react"
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import "./CreateQuiz.css"
 
 
 export default class CreateQuiz extends Component {
@@ -21,7 +22,8 @@ export default class CreateQuiz extends Component {
     state = {
         name: "",
         userId: "",
-        public: true
+        public: true,
+        img: ""
     }
 
     handleFieldChange = evt => {
@@ -36,7 +38,8 @@ export default class CreateQuiz extends Component {
             const quiz = {
                 name: this.state.name,
                 userId: sessionStorage.getItem("userInfo"),
-                public: true
+                public: true,
+                img: this.state.img
             }
             this.props
                 .addQuiz(quiz)
@@ -51,13 +54,17 @@ export default class CreateQuiz extends Component {
         return (
             <React.Fragment>
                 <Form>
-                    <FormGroup>
-                        <Label for="exampleEmail">Quiz Name</Label>
-                        <Input type="text" name="name" id="name" placeholder="Name of quiz" onChange={this.handleFieldChange} />
-                    </FormGroup>
+                    <article className="form-container">
+                        <FormGroup className="form">
+                            <Label for="name" className="name_label">Quiz Name</Label>
+                            <Input type="text" name="name" id="name" placeholder="Name of quiz" onChange={this.handleFieldChange} />
+                            <Label for="img" className="img_label">Image URL</Label>
+                            <Input type="text" name="img" id="img" placeholder="URL" onChange={this.handleFieldChange} />
+                            <Button className="submit_create_quiz_button" type="submit" onClick={this.createQuiz} >Submit and Add Questions</Button>
+                        </FormGroup>
+                    </article>
                 </Form>
 
-                <Button type="submit" onClick={this.createQuiz} >Submit and Add Questions</Button>
             </React.Fragment>
         )
     }

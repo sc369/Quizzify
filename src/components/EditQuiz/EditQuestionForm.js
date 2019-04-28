@@ -74,6 +74,18 @@ export default class EditQuestionForm extends Component {
         this.props.history.push(`/EditQuestionForm/${this.props.match.params.quizId}/${parseInt(this.state.currentQuestionIndex)}`)
 
     }
+    DeleteUnlessOnlyQuestion = () => {
+        if (this.state.thisQuizQuestions.length == 1) {
+            window.alert("Sorry, you can't delete the only question in a quiz.")
+        } else if (this.state.currentQuestionIndex + 1 === this.state.thisQuizQuestions.length) {
+            this.state.currentQuestionIndex = this.state.currentQuestionIndex - 1;
+            this.props.deleteQuestionAndAnswers(this.state.questionId)
+                .then(() => this.componentDidMount())
+        } else {
+            this.props.deleteQuestionAndAnswers(this.state.questionId)
+                .then(() => this.componentDidMount())
+        }
+    }
 
     editQandAs = evt => {
         evt.preventDefault();
@@ -142,17 +154,6 @@ export default class EditQuestionForm extends Component {
         }
     }
 
-    //     {(quiz.hasOwnProperty('user')) ?
-    //     <div>
-    //         <img src={quiz.img}></img>
-    //         Created by {quiz.user.username}
-    //     </div> :
-    //     ""
-    // }
-
-
-
-
     render() {
         return (
             <React.Fragment >
@@ -197,9 +198,9 @@ export default class EditQuestionForm extends Component {
                             : <Button onClick={this.editQandAs}>Submit and Return to Dashboard</Button>
                         }
                         <Button
-                            onClick={() => this.props.deleteQuestionAndAnswers(this.state.questionId)
-                                .then(() => this.incrementQuestionIndex())
+                            onClick={() => this.DeleteUnlessOnlyQuestion()
                             } >Delete Question</Button>
+                        <Button tag={Link} to={`/AddQ/${this.state.quizId}`}>Add Questions</Button>
                     </FormGroup>
                 </Form>
             </React.Fragment >

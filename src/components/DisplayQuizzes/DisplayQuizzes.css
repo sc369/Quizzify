@@ -1,5 +1,37 @@
-img {
-max-width: 120px;
-max-height: 120px
+.quiz_container {
+
+margin-left: 20px;
+margin-bottom: 2px
 
 }
+.select_quiz_button {
+    margin-left: 32px;
+    margin-top: 2px;
+  }
+
+img {
+width: 180px;
+height: 180px;
+
+}
+
+.creator {
+    text-align: center;
+    margin: 5px;
+}
+
+.name {
+    text-align: center;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.quiz {
+    margin-left: 20px;
+}
+
+.quizzes {
+    display: flex;
+}
+
+

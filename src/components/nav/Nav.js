@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { Navbar, NavLink, Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
 import UserManager from "../../modules/DataManagers/UserManager";
+import "./Nav.css"
 
 class NavBar extends Component {
 
@@ -31,16 +32,16 @@ class NavBar extends Component {
 
     render() {
         return (
-            <Navbar color="" light expand="md">
-                <NavLink>
-                    <Button tag={Link} to="/SelectTakeQuiz">Take A Quiz</Button>
-                    <Button tag={Link} to="/CreateQuiz">Create A Quiz</Button>
-                    <Button tag={Link} to="/SelectEditQuiz">Edit A Quiz</Button>
-                    <span className="logout_button">
-                        <Button onClick={this.logOut} >Logout</Button>
-                    </span>
-                    <p>Logged in as {`${this.state.username}`}</p>
-                </NavLink>
+            <Navbar expand="md">
+                <span className="app_title">Quizzify</span>
+                <NavLink> </NavLink>
+                <Button tag={Link} to="/SelectTakeQuiz">Take A Quiz</Button>
+                <Button tag={Link} to="/CreateQuiz">Create A Quiz</Button>
+                <Button tag={Link} to="/SelectEditQuiz">Edit A Quiz</Button>
+                <span className="logout_button">
+                    <Button onClick={this.logOut} >Logout</Button>
+                </span>
+                <span className="logged_in_username">Logged in as {`${this.state.username}`}</span>
             </Navbar>
         )
     }

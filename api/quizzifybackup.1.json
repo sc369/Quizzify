@@ -1,0 +1,483 @@
+{
+    "questions": [
+        {
+            "text": "How many US presidents have been assassinated?",
+            "quizId": "1",
+            "id": 1
+        },
+        {
+            "text": "Who was the second US President?",
+            "quizId": "1",
+            "id": 2
+        },
+        {
+            "text": "In which year was the first cross-Atlantic flight?",
+            "quizId": "3",
+            "id": 4
+        },
+        {
+            "text": "Which animal has the largest brain?",
+            "quizId": "4",
+            "id": 5
+        },
+        {
+            "text": "Who created Javascript?",
+            "quizId": "5",
+            "id": 6
+        }
+    ],
+    "userAnswers": [
+        {
+            "id": 1,
+            "userId": 1,
+            "questionId": 1
+        },
+        {
+            "answerId": 1,
+            "userId": 2,
+            "questionId": 1,
+            "id": 2
+        },
+        {
+            "answerId": 5,
+            "userId": 2,
+            "questionId": 2,
+            "id": 3
+        },
+        {
+            "answerId": 1,
+            "userId": 2,
+            "questionId": 1,
+            "id": 4
+        },
+        {
+            "answerId": 1,
+            "userId": 2,
+            "questionId": 1,
+            "id": 5
+        },
+        {
+            "answerId": 3,
+            "userId": 1,
+            "questionId": 1,
+            "id": 13
+        },
+        {
+            "answerId": 6,
+            "userId": 1,
+            "questionId": 2,
+            "id": 14
+        },
+        {
+            "answerId": 3,
+            "userId": 1,
+            "questionId": 1,
+            "id": 16
+        },
+        {
+            "answerId": 7,
+            "userId": 1,
+            "questionId": 2,
+            "id": 17
+        },
+        {
+            "answerId": 3,
+            "userId": 1,
+            "questionId": 1,
+            "id": 18
+        },
+        {
+            "answerId": 5,
+            "userId": 1,
+            "questionId": 2,
+            "id": 19
+        },
+        {
+            "answerId": 2,
+            "userId": 1,
+            "questionId": 1,
+            "id": 20
+        },
+        {
+            "answerId": 1,
+            "userId": 1,
+            "questionId": 1,
+            "id": 21
+        },
+        {
+            "answerId": 3,
+            "userId": 1,
+            "questionId": 1,
+            "id": 22
+        },
+        {
+            "answerId": 1,
+            "userId": 1,
+            "questionId": 1,
+            "id": 23
+        },
+        {
+            "answerId": 2,
+            "userId": 1,
+            "questionId": 1,
+            "id": 24
+        },
+        {
+            "answerId": 2,
+            "userId": 1,
+            "questionId": 1,
+            "id": 25
+        },
+        {
+            "answerId": 4,
+            "userId": 1,
+            "questionId": 1,
+            "id": 26
+        },
+        {
+            "answerId": 5,
+            "userId": 1,
+            "questionId": 2,
+            "id": 27
+        },
+        {
+            "answerId": 4,
+            "userId": 1,
+            "questionId": 1,
+            "id": 28
+        },
+        {
+            "answerId": 7,
+            "userId": 1,
+            "questionId": 2,
+            "id": 29
+        },
+        {
+            "answerId": 2,
+            "userId": 1,
+            "questionId": 1,
+            "id": 30
+        },
+        {
+            "answerId": 8,
+            "userId": 1,
+            "questionId": 2,
+            "id": 31
+        },
+        {
+            "answerId": 3,
+            "userId": 1,
+            "questionId": 1,
+            "id": 33
+        },
+        {
+            "answerId": 7,
+            "userId": 1,
+            "questionId": 2,
+            "id": 34
+        },
+        {
+            "answerId": 1,
+            "userId": 1,
+            "questionId": 1,
+            "id": 35
+        },
+        {
+            "answerId": 7,
+            "userId": 1,
+            "questionId": 2,
+            "id": 36
+        },
+        {
+            "answerId": 24,
+            "userId": 1,
+            "questionId": 6,
+            "id": 37
+        },
+        {
+            "answerId": 21,
+            "userId": 1,
+            "questionId": 6,
+            "id": 38
+        },
+        {
+            "answerId": 19,
+            "userId": 1,
+            "questionId": 5,
+            "id": 39
+        },
+        {
+            "answerId": 1,
+            "userId": 1,
+            "questionId": 1,
+            "id": 40
+        },
+        {
+            "answerId": 7,
+            "userId": 1,
+            "questionId": 2,
+            "id": 41
+        },
+        {
+            "answerId": 22,
+            "userId": 1,
+            "questionId": 6,
+            "id": 42
+        },
+        {
+            "answerId": 3,
+            "userId": 1,
+            "questionId": 1,
+            "id": 43
+        },
+        {
+            "answerId": 15,
+            "userId": 1,
+            "questionId": 4,
+            "id": 44
+        },
+        {
+            "answerId": 3,
+            "userId": 1,
+            "questionId": 1,
+            "id": 45
+        },
+        {
+            "answerId": 7,
+            "userId": 1,
+            "questionId": 2,
+            "id": 46
+        },
+        {
+            "answerId": 5,
+            "userId": 1,
+            "questionId": 2,
+            "id": 47
+        },
+        {
+            "answerId": 5,
+            "userId": 1,
+            "questionId": 2,
+            "id": 48
+        },
+        {
+            "answerId": 15,
+            "userId": 1,
+            "questionId": 4,
+            "id": 49
+        },
+        {
+            "answerId": 3,
+            "userId": 1,
+            "questionId": 1,
+            "id": 50
+        },
+        {
+            "answerId": 8,
+            "userId": 1,
+            "questionId": 2,
+            "id": 51
+        },
+        {
+            "answerId": 20,
+            "userId": 1,
+            "questionId": 5,
+            "id": 52
+        },
+        {
+            "answerId": 20,
+            "userId": 1,
+            "questionId": 5,
+            "id": 53
+        }
+    ],
+    "quizzes": [
+        {
+            "id": 1,
+            "img": "http://mediad.publicbroadcasting.net/p/wkms/files/201212/Thomas-Jefferson-9353715-2-402.jpg",
+            "name": "US Presidents",
+            "userId": "1",
+            "public": true
+        },
+        {
+            "id": 3,
+            "img": "https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?cs=srgb&dl=aeroplane-aircraft-airplane-46148.jpg&fm=jpg",
+            "name": "Airplanes",
+            "userId": "1",
+            "public": true
+        },
+        {
+            "id": 4,
+            "img": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Giraffe_standing.jpg",
+            "name": "Animals",
+            "userId": "1",
+            "public": true
+        },
+        {
+            "name": "Javascript",
+            "userId": "1",
+            "public": true,
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
+            "id": 5
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "username": "Stephen",
+            "password": "123"
+        },
+        {
+            "username": "bubbabrine",
+            "password": "admin",
+            "id": 2
+        },
+        {
+            "username": "Elizabeth",
+            "password": "123",
+            "id": 3
+        }
+    ],
+    "answers": [
+        {
+            "text": "Four",
+            "questionId": 1,
+            "id": 1,
+            "correct": true,
+            "quizId": "1"
+        },
+        {
+            "text": "Six",
+            "id": 2,
+            "questionId": 1,
+            "correct": false,
+            "quizId": "1"
+        },
+        {
+            "text": "Three",
+            "id": 3,
+            "questionId": 1,
+            "correct": false,
+            "quizId": "1"
+        },
+        {
+            "text": "Five",
+            "id": 4,
+            "questionId": 1,
+            "correct": false,
+            "quizId": "1"
+        },
+        {
+            "text": "Thomas Jefferson",
+            "questionId": 2,
+            "id": 5,
+            "correct": false,
+            "quizId": "1"
+        },
+        {
+            "text": "Alexander Hamilton",
+            "id": 6,
+            "questionId": 2,
+            "correct": false,
+            "quizId": "1"
+        },
+        {
+            "text": "John Adams",
+            "id": 7,
+            "questionId": 2,
+            "correct": true,
+            "quizId": "1"
+        },
+        {
+            "text": "James Madison",
+            "id": 8,
+            "questionId": 2,
+            "correct": false,
+            "quizId": "1"
+        },
+        {
+            "text": "1915",
+            "questionId": 4,
+            "id": 13,
+            "correct": false,
+            "quizId": "3"
+        },
+        {
+            "text": "1919",
+            "id": 14,
+            "questionId": 4,
+            "correct": false,
+            "quizId": "3"
+        },
+        {
+            "text": "1923",
+            "id": 15,
+            "questionId": 4,
+            "correct": false,
+            "quizId": "3"
+        },
+        {
+            "text": "1927",
+            "id": 16,
+            "questionId": 4,
+            "correct": true,
+            "quizId": "3"
+        },
+        {
+            "text": "Blue Whale",
+            "questionId": 5,
+            "correct": false,
+            "quizId": "4",
+            "id": 17
+        },
+        {
+            "text": "Grey Whale",
+            "questionId": 5,
+            "correct": false,
+            "quizId": "4",
+            "id": 18
+        },
+        {
+            "text": "Sperm Whale",
+            "questionId": 5,
+            "correct": true,
+            "quizId": "4",
+            "id": 19
+        },
+        {
+            "text": "Elephant",
+            "questionId": 5,
+            "correct": false,
+            "quizId": "4",
+            "id": 20
+        },
+        {
+            "text": "Linus Torvalds",
+            "questionId": 6,
+            "correct": false,
+            "quizId": "5",
+            "id": 21
+        },
+        {
+            "text": "Steve Jobs",
+            "questionId": 6,
+            "correct": false,
+            "quizId": "5",
+            "id": 22
+        },
+        {
+            "text": "Bill Gates",
+            "questionId": 6,
+            "correct": false,
+            "quizId": "5",
+            "id": 23
+        },
+        {
+            "text": "Brandon Eich",
+            "questionId": 6,
+            "correct": true,
+            "quizId": "5",
+            "id": 24
+        }
+    ]
+}

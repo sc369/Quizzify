@@ -2,6 +2,7 @@
 import React, { Component } from "react"
 import { Button, FormGroup, Label, Input } from 'reactstrap'
 import AnswerManager from "../../modules/DataManagers/AnswerManager";
+import "./TakeQuiz.css"
 
 export default class TakeQuiz extends Component {
 
@@ -49,6 +50,7 @@ export default class TakeQuiz extends Component {
 
             } else if (this.state.correctAnswers === 1) {
                 window.alert(`You got 1 answer correct out of ${this.state.thisQuizQuestions.length}`)
+                this.props.history.push('/SelectTakeQuiz')
             } else {
                 window.alert(`You got ${this.state.correctAnswers} answers correct out of ${this.state.thisQuizQuestions.length}`)
                 this.props.history.push('/SelectTakeQuiz')
@@ -75,31 +77,28 @@ export default class TakeQuiz extends Component {
 
     render() {
         let currentQuestion = (this.state.thisQuizQuestions[this.state.currentQuestionIndex])
-
         return (
             <React.Fragment>
                 {(this.state.thisQuizQuestions[this.state.currentQuestionIndex] !== undefined) ?
-
                     <section className="QandA">
-                        <div>{currentQuestion.text}</div>
-                        {this.state.theseAnswers.map(answer =>
-                            <div key={answer.id}>
-                                <FormGroup check>
-                                    <Label for="chosen_answer" check>
-                                        <Input type="radio" name="radio1" id="chosen_answer" value={answer.id} onChange={this.handleFieldChange} />{' '}
-                                        {answer.text}
-                                    </Label>
-                                </FormGroup>
-                            </div>
-                        )}
-                        <Button type="submit" onClick={() => this.state.chosen_answer !== "none" ?
-                            this.nextQuestion(currentQuestion.id, parseInt(this.state.chosen_answer))
-
-                            : window.alert("Please select an answer")
-                        }>
-                            Next Question</Button>
+                        <div className="question">{currentQuestion.text}</div>
+                        <div className="container">
+                            {this.state.theseAnswers.map(answer =>
+                                <div key={answer.id}>
+                                    <FormGroup check>
+                                        <Label className="answer_container" for="chosen_answer" check>
+                                            <Input className="answer" type="radio" name="radio1" id="chosen_answer" value={answer.id} onChange={this.handleFieldChange} />{' '}
+                                            <span className="answer_text">{answer.text}</span>
+                                        </Label>
+                                    </FormGroup>
+                                </div>
+                            )}
+                            <Button className="next_question" size="sm" type="submit" onClick={() => this.state.chosen_answer !== "none" ?
+                                this.nextQuestion(currentQuestion.id, parseInt(this.state.chosen_answer))
+                                : window.alert("Please select an answer")
+                            }> Next Question</Button>
+                        </div>
                     </section>
-
                     : ""
                 }
             </React.Fragment>

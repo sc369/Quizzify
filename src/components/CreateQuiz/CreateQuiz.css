@@ -1,0 +1,23 @@
+.form-container {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    align-iteMs: center !important;
+}
+
+.form {
+    text-align: center !important
+}
+
+.name_label {
+font-weight: bold
+}
+
+.img_label {
+font-weight: bold
+}
+
+.submit_create_quiz_button {
+margin-top: 2px;
+
+}
