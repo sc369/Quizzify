@@ -7,6 +7,8 @@ Clone project into local directory.
 
 Install node modules in local directory:  npm install
 
+Install json-server: npm install -g json-server
+
 Open a new console window, and go to the quizzify/api directory
 
 In the new window, start json server:  json-server -p 8088 quizzify.json
